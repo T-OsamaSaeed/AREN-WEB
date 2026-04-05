@@ -1,6 +1,8 @@
 importScripts('https://www.gstatic.com/firebasejs/12.11.0/firebase-app-compat.js');
 importScripts('https://www.gstatic.com/firebasejs/12.11.0/firebase-messaging-compat.js');
 
+console.info('[FCM SW] firebase-messaging-sw.js loaded');
+
 // Background worker used by Firebase Cloud Messaging for web push notifications.
 firebase.initializeApp({
   apiKey: 'AIzaSyBPJPH_oII3pNHdmLOZ667vaBP0yGfK25g',
@@ -29,6 +31,10 @@ function readBackgroundPayload(payload) {
 
 messaging.onBackgroundMessage((payload) => {
   const pushMessage = readBackgroundPayload(payload);
+  console.info('[FCM SW] Background message received', {
+    title: pushMessage.title,
+    url: pushMessage.url,
+  });
 
   // Show a system notification even if the website is closed.
   self.registration.showNotification(pushMessage.title, {
