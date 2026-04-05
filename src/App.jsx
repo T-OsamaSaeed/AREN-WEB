@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import academyLogo from './assets/academy-logo.jpeg';
 import LandingPage from './pages/LandingPage';
 import TeacherDashboardPage from './pages/TeacherDashboardPage';
 import {
@@ -22,6 +21,8 @@ const STORAGE_KEY = 'aren-academy-teacher-name';
 const SEEN_ANNOUNCEMENTS_KEY = 'aren-academy-seen-announcements';
 const DASHBOARD_POLL_INTERVAL_MS = 60000;
 const AUTO_REFRESH_COOLDOWN_MS = 5000;
+const PWA_ICON_VERSION = 'alran-brand-5';
+const BRAND_LOGO_SRC = `${import.meta.env.BASE_URL}logo.jpeg?v=${PWA_ICON_VERSION}`;
 
 function createAsyncState() {
   return {
@@ -361,8 +362,11 @@ function App() {
     }
 
     const notificationTitle = announcement?.title?.trim() || 'Yeni duyuru';
-    const notificationBody = announcement?.body?.trim() || 'Aren Academy paneline yeni bir duyuru eklendi.';
-    const appIconUrl = new URL(`${import.meta.env.BASE_URL}pwa-192.png`, window.location.href).toString();
+    const notificationBody = announcement?.body?.trim() || 'Alran Academy paneline yeni bir duyuru eklendi.';
+    const appIconUrl = new URL(
+      `${import.meta.env.BASE_URL}pwa-192.png?v=${PWA_ICON_VERSION}`,
+      window.location.href,
+    ).toString();
 
     try {
       if ('serviceWorker' in navigator) {
@@ -566,7 +570,7 @@ function App() {
           callSaveState={callSaveState}
           callsState={callsState}
           classesState={classesState}
-          logoSrc={academyLogo}
+          logoSrc={BRAND_LOGO_SRC}
           onCallDraftChange={setCallDraft}
           onOpenCallModal={handleOpenCallModal}
           onRetryAnnouncements={() => handleRetrySection('announcements')}
@@ -581,7 +585,7 @@ function App() {
         <LandingPage
           entryError={entryError}
           isTeachersLoading={teachersState.status === 'loading'}
-          logoSrc={academyLogo}
+          logoSrc={BRAND_LOGO_SRC}
           onEnter={handleEnterTeacher}
           onRetryTeachers={initializeTeachers}
           onTeacherInputChange={handleTeacherInputChange}
