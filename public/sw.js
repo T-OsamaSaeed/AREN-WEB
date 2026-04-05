@@ -1,12 +1,14 @@
-const CACHE_NAME = 'aren-academy-v1';
+const CACHE_NAME = 'alran-academy-v5';
 const APP_SHELL = [
   './',
   './index.html',
-  './manifest.webmanifest',
-  './favicon.png',
-  './pwa-192.png',
-  './pwa-512.png',
-  './apple-touch-icon.png',
+  './favicon.svg?v=alran-brand-5',
+  './manifest.webmanifest?v=alran-brand-5',
+  './favicon.png?v=alran-brand-5',
+  './apple-touch-icon.png?v=alran-brand-5',
+  './pwa-192.png?v=alran-brand-5',
+  './pwa-512.png?v=alran-brand-5',
+  './logo.jpeg?v=alran-brand-5',
 ];
 
 self.addEventListener('install', (event) => {
@@ -68,7 +70,7 @@ self.addEventListener('fetch', (event) => {
 
           return networkResponse;
         })
-        .catch(() => caches.match('./favicon.png'));
+        .catch(() => caches.match('./favicon.png?v=alran-brand-5'));
     }),
   );
 });
@@ -76,7 +78,7 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
 
-  const targetUrl = event.notification.data?.url || `${self.location.origin}/`;
+  const targetUrl = event.notification.data?.url || self.registration.scope;
 
   event.waitUntil(
     self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clients) => {
