@@ -1,10 +1,10 @@
 # Aren Academy Website
 
 ## 1. Where to paste the Apps Script URL
-Open [src/services/api.js](C:\Users\Asus\Downloads\Aren web\src\services\api.js) and replace the `API_BASE_URL` value if your Google Apps Script URL changes.
+Open [src/services/api.js](src/services/api.js) and replace the `API_BASE_URL` value if your Google Apps Script URL changes.
 
 ## 2. Where the logo is used
-The uploaded logo is stored at [src/assets/academy-logo.jpeg](C:\Users\Asus\Downloads\Aren web\src\assets\academy-logo.jpeg) and is shown on the landing page and in the teacher dashboard header.
+The uploaded logo is stored at [src/assets/academy-logo.jpeg](src/assets/academy-logo.jpeg) and is shown on the landing page and in the teacher dashboard header.
 
 ## 3. How to run locally
 ```bash
