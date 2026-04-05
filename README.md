@@ -1,10 +1,11 @@
-# Aren Academy Website
+# Alran Academy Website
 
 ## 1. Where to paste the Apps Script URL
 Open [src/services/api.js](src/services/api.js) and replace the `API_BASE_URL` value if your Google Apps Script URL changes.
 
 ## 2. Where the logo is used
-The uploaded logo is stored at [src/assets/academy-logo.jpeg](src/assets/academy-logo.jpeg) and is shown on the landing page and in the teacher dashboard header.
+The landing-page wordmark is stored at [public/alran-wordmark.svg](public/alran-wordmark.svg).
+The website and PWA icons are stored at [public/favicon.svg](public/favicon.svg), [public/favicon.png](public/favicon.png), [public/pwa-192.png](public/pwa-192.png), [public/pwa-512.png](public/pwa-512.png), and [public/apple-touch-icon.png](public/apple-touch-icon.png).
 
 ## 3. How to run locally
 ```bash
