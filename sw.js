@@ -1,4 +1,4 @@
-const CACHE_NAME = 'aren-academy-v9';
+const CACHE_NAME = 'aren-academy-v11';
 const APP_SHELL = [
   './',
   './index.html',
@@ -71,24 +71,6 @@ self.addEventListener('fetch', (event) => {
           return networkResponse;
         })
         .catch(() => caches.match('./favicon.png?v=aren-brand-9'));
-    }),
-  );
-});
-
-self.addEventListener('notificationclick', (event) => {
-  event.notification.close();
-
-  const targetUrl = event.notification.data?.url || self.registration.scope;
-
-  event.waitUntil(
-    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clients) => {
-      const matchingClient = clients.find((client) => client.url === targetUrl || client.url.startsWith(targetUrl));
-
-      if (matchingClient) {
-        return matchingClient.focus();
-      }
-
-      return self.clients.openWindow(targetUrl);
     }),
   );
 });
