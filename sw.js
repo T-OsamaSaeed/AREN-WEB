@@ -1,4 +1,4 @@
-const CACHE_NAME = 'aren-academy-v11';
+const CACHE_NAME = 'aren-academy-v13';
 const APP_SHELL = [
   './',
   './index.html',
